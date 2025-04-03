@@ -1,0 +1,5 @@
+data/tasks/
+.cache/
+.DS_Store
+test.py
+.env

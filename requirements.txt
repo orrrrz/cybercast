@@ -1,0 +1,6 @@
+dashscope
+backoff
+dotenv
+tqdm
+matplotlib
+librosa
