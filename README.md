@@ -1,4 +1,4 @@
-
+# cybercast - 基于 AI 的访谈对话视频生成工具
 
 ## 安装
 
@@ -35,20 +35,20 @@ cp .env.example .env
 配置说明:
 ```json
 {
-    "topic": "美国顶流网红Speed中国行", # 必须，用于生成提示词
-    "column_name": "《赛博21世纪》网络电台", # 必须，用于生成提示词
+    "topic": "美国顶流网红Speed中国行", 
+    "column_name": "《赛博21世纪》网络电台", 
     "mcs": {
         "卢不遇": {
-            "tts": "cosyvoice", // 必须， TTS 模型, 可选: "cosyvoice", "sambert"
-            "model": "cosyvoice-v1", // 必须， TTS 模型, 见阿里云 TTS 模型列表
-            "voice": "longmiao", // 必须， TTS 音色, 见阿里云 TTS 音色列表
+            "tts": "cosyvoice",
+            "model": "cosyvoice-v1", 
+            "voice": "longmiao", 
             "intro": "30岁， 中国资深新闻电台主持人，从事国际、国内社会新闻报导长达二十多年，21世纪全球最有影响力的100位女性之一。 思维敏捷、语言风趣活泼。能够与任何人进行自然、有趣的对话，并善于提出一些有趣的问题。", //必须，可用于脚本生成提示词。
 
-            "wave_color": "#FF6B6B", // 非必须， 视频声波颜色
-            "gender": "female", // 非必须， 主播性别
-            "age": 30, // 非必须， 主播年龄
-            "avatar": "avatars/1.png", // 非必须， 主播头像
-            "looking": "short-hair young woman, cute" // 非必须， 主播形象描述
+            "wave_color": "#FF6B6B", 
+            "gender": "female", 
+            "age": 30, 
+            "avatar": "avatars/1.png", 
+            "looking": "short-hair young woman, cute" 
         },
         "黑眼松": {
             "gender": "male",
@@ -63,6 +63,20 @@ cp .env.example .env
     }
 }
 ```
+
+配置说明:
+- `topic`*: 对话话题， 用于生成提示词
+- `column_name`*: 栏目名称， 用于生成提示词
+- `mcs`: 主播列表， 每个主播的配置如下:
+    - `tts`: TTS 模型， 必须， 可选: "cosyvoice", "sambert"
+    - `model`: TTS 模型， 必须， 见阿里云 TTS 模型列表
+    - `voice`: TTS 音色， 必须， 见阿里云 TTS 音色列表
+    - `intro`: 主播介绍， 必须， 用于生成提示词
+    - `wave_color`: 声波颜色， 非必须， 用于在视频上显示声波颜色。
+    - `gender`: 主播性别， 非必须， 用于生成提示词
+    - `age`: 主播年龄, 非必须， 用于生成提示词
+    - `avatar`: 主播头像， 必须， 用于在视频上显示头像。
+    - `looking`: 主播形象描述， 非必须， 用于生成提示词
 
 ### 脚本生成
 ```
