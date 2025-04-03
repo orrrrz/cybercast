@@ -2,8 +2,8 @@ import os
 import tempfile
 import argparse
 import subprocess
-from utils.common_utils import load_json
-from utils.waveform_utils import create_animated_waveform_video_parallel
+from cybercast.utils.common_utils import load_json
+from cybercast.utils.waveform_utils import create_animated_waveform_video_parallel
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-n", "--name", type=str, default="earthquake")
@@ -48,8 +48,8 @@ def gen_video():
             avatar_path=avatar_path,  # 添加头像路径
             color_hex=color,
             background_color_hex="#333333",
-            width=1280,
-            height=960,
+            width=config.get("video_width", 1280),
+            height=config.get("video_height", 960),
             fps=30,
             bar_width=4,
             gap_width=1,

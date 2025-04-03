@@ -1,0 +1,52 @@
+[
+    {
+        "name": "deepseek-coder",
+        "base_url": "https://api.deepseek.com/v1",
+        "api_key": "DEEPSEEK_API_KEY"
+    },
+    {
+        "name": "deepseek-chat",
+        "base_url": "https://api.deepseek.com/v1",
+        "api_key": "DEEPSEEK_API_KEY"
+    },
+    {
+        "name": "deepseek-reasoner",
+        "base_url": "https://api.deepseek.com/v1",
+        "api_key": "DEEPSEEK_API_KEY"
+    },
+    {
+        "name":  "qwen2.5-vl-72b-instruct",
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "api_key": "DASHSCOPE_API_KEY"
+    },
+    {
+        "name": "qwen-vl-ocr",
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "api_key": "DASHSCOPE_API_KEY"
+    },
+    {
+        "name":  "qwen2.5-vl-32b-instruct",
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "api_key": "DASHSCOPE_API_KEY"
+    },
+    {
+        "name": "qwq-plus",
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "api_key": "DASHSCOPE_API_KEY"
+    },
+    {
+        "name": "qwen-max",
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "api_key": "DASHSCOPE_API_KEY"
+    },
+    {
+        "name": "qwen2.5-vl-32b-instruct",
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "api_key": "DASHSCOPE_API_KEY"
+    },
+    {
+        "name": "anthropic/claude-3.5-sonnet",
+        "base_url": "https://openrouter.ai/api/v1",
+        "api_key": "OPENROUTER_API_KEY"
+    }
+    ]

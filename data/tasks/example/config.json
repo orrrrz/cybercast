@@ -1,6 +1,9 @@
 {
     "topic": "美国顶流网红Speed中国行",
     "column_name": "《赛博21世纪》网络电台",
+    "script_model": "deepseek-chat",
+    "video_width": 1280,
+    "video_height": 960,
     "mcs": {
         "卢不遇": {
             "gender": "female",

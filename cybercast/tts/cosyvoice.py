@@ -2,7 +2,7 @@ import os
 import backoff
 import dotenv
 import dashscope
-from .base_tts import BaseTTS
+from cybercast.tts.base_tts import BaseTTS
 from dashscope.audio.tts_v2 import SpeechSynthesizer
 
 dotenv.load_dotenv()

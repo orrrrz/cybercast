@@ -20,23 +20,31 @@ Linux:
 sudo apt-get install ffmpeg
 ```
 
+### 准备 API_KEY 
+
+本项目依赖 阿里云 DashScope 的 TTS 及 LLM 服务， 请自行申请 DashScope API Key。
+
 ### 配置环境变量
 ```
 cp .env.example .env
 ```
 
-至少需配置 `DASHSCOPE_API_KEY` 和 `TTS_CACHE_DIR` 两个环境变量。
+环境变量说明:
+* `DASHSCOPE_API_KEY`: DashScope API Key
+* `TTS_CACHE_DIR`: TTS 语音合成缓存目录
+* `LLM_CACHE_DIR`: LLM 请求缓存目录
 
 ## 运行
 
 ### 任务配置
-在 `data/tasks` 目录下创建任务目录， 配置 `config.json` 文件。
+在任务目录(默认为`data/tasks`) 下以任务名创建任务目录， 然后创建任务配置文件 `config.json`。
 
-配置说明:
+配置示例:
 ```json
 {
     "topic": "美国顶流网红Speed中国行", 
     "column_name": "《赛博21世纪》网络电台", 
+    "script_model": "qwq-plus",
     "mcs": {
         "卢不遇": {
             "tts": "cosyvoice",
@@ -64,10 +72,11 @@ cp .env.example .env
 }
 ```
 
-配置说明:
-- `topic`*: 对话话题， 用于生成提示词
-- `column_name`*: 栏目名称， 用于生成提示词
-- `mcs`: 主播列表， 每个主播的配置如下:
+字段说明:
+* `topic`*: 对话话题， 用于生成提示词
+* `column_name`*: 栏目名称， 用于生成提示词。
+* `script_model`: 脚本生成模型， 非必须
+* `mcs`: 主播列表， 每个主播的配置如下:
     - `tts`: TTS 模型， 必须， 可选: "cosyvoice", "sambert"
     - `model`: TTS 模型， 必须， 见阿里云 TTS 模型列表
     - `voice`: TTS 音色， 必须， 见阿里云 TTS 音色列表
@@ -79,22 +88,34 @@ cp .env.example .env
     - `looking`: 主播形象描述， 非必须， 用于生成提示词
 
 ### 脚本生成
-```
-./run.sh prompt <task_name>
+```bash
+./run.sh script <task_name>
 ```
 其中，  `<task_name>` 为任务目录名。
 
-运行该命令将在任务目录下生成 `prompt.md` 文件。 复制该文件中的提示词， 丢给任何 AI 模型， 都可以生成一个对话脚本。请将模型生成的脚本保存在任务目录下的 `transcript.txt` 文件中。
+运行该命令将在任务目录下生成以下文件:
+- `prompt.md` 文件： 脚本生成提示词。
+- `transcript.txt` 文件： 访谈对话脚本。
+
+也可以指定`-p` 参数只生成提示词， 然后手动丢给任何 AI 模型， 然后手动将模型生成的脚本保存到任务目录下 `transcript.txt` 文件中。
+```bash
+./run.sh script -n <task_name> -p
+``` 
 
 ### 生成对话音频
+```bash
+./run.sh podcast -n <task_name>
 ```
-./run.sh podcast <task_name>
-```
-输出音频路径为 `data/tasks/<task_name>/podcast.mp3`。
+输出音频名称为 `podcast.mp3` (任务目录下)。
 
 ### 生成对话视频
+```bash
+./run.sh video -n <task_name>
 ```
-./run.sh video <task_name>
+输出视频名称为 `<task_name>.mp4` (任务目录下)。
+
+以上三个步骤也可以一键运行:
+```bash
+./run.sh all -n <task_name>
 ```
-输出视频路径为 `data/tasks/<task_name>/<task_name>.mp4`。
 

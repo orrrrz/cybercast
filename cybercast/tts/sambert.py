@@ -1,7 +1,7 @@
 import os
 import backoff
 from dashscope.audio.tts import SpeechSynthesizer
-from tts.base_tts import BaseTTS
+from cybercast.tts.base_tts import BaseTTS
 
 class SambertTTS(BaseTTS):
 

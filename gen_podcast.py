@@ -2,9 +2,10 @@ import os
 import json
 import argparse
 from tqdm import tqdm
-from tts import SambertTTS, CosyVoiceTTS
-from utils.common_utils import *
-from utils.audio_utils import *
+from cybercast.tts import SambertTTS, CosyVoiceTTS
+from cybercast.utils.common_utils import *
+from cybercast.utils.audio_utils import *
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-n", "--name", type=str, required=True, help="podcast name")
 parser.add_argument("--transcript", type=str, default=None)

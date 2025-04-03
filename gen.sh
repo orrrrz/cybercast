@@ -1,19 +1,23 @@
 #!/bin/bash
 
-# Usage ./gen.sh prompt|podcast|video <task_name>
+# Usage ./gen.sh script|podcast|video|all [args...]
 
 cmd=$1
-task_name=$2
+shift  # Remove the first argument (cmd) from the argument list
 
-if [ -z "$task_name" ]; then
-    echo "Usage: ./gen.sh <cmd> <task_name>"
+if [ -z "$cmd" ]; then
+    echo "Usage: ./gen.sh <cmd> [args...]"
     exit 1
 fi
 
-if [ "$cmd" == "prompt" ]; then
-    python gen_prompt.py -n $task_name
+if [ "$cmd" == "script" ]; then
+    python gen_script.py $@
 elif [ "$cmd" == "podcast" ]; then
-    python gen_podcast.py -n $task_name
+    python gen_podcast.py $@
 elif [ "$cmd" == "video" ]; then
-    python gen_video.py -n $task_name
+    python gen_video.py $@
+elif [ "$cmd" == "all" ]; then
+    python gen_script.py $@
+    python gen_podcast.py $@
+    python gen_video.py $@
 fi

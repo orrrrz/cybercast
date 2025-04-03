@@ -4,3 +4,4 @@ dotenv
 tqdm
 matplotlib
 librosa
+langchain_openai
