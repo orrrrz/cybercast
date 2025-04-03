@@ -91,7 +91,7 @@ cp .env.example .env
 ```bash
 ./run.sh script <task_name>
 ```
-其中，  `<task_name>` 为任务目录名。
+其中，  `<task_name>` 为任务目录名。该命令生成访谈脚本， 默认使用阿里巴巴 `qwq-plus` 模型。
 
 运行该命令将在任务目录下生成以下文件:
 - `prompt.md` 文件： 脚本生成提示词。
@@ -101,6 +101,7 @@ cp .env.example .env
 ```bash
 ./run.sh script -n <task_name> -p
 ``` 
+这种方式更灵活， 效果可能会更好。推荐带联网搜索功能的聊天应用， 如 DeepSeek, Grok, Perplexity, 豆包等。 
 
 ### 生成对话音频
 ```bash
@@ -118,4 +119,3 @@ cp .env.example .env
 ```bash
 ./run.sh all -n <task_name>
 ```
-
