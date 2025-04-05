@@ -1,5 +1,7 @@
 # cybercast - 基于 AI 的访谈对话视频生成工具
 
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114273493784708&bvid=BV1QeZmYMEcV&cid=29215359255&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 ## 安装
 
 ### 安装依赖
